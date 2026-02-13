@@ -34,6 +34,7 @@ namespace VHBurguer.Repositories
             // Any - Retorna true ou false para validar se existe
             return _context.Usuario.Any(usuario => usuario.Email == email);
         }
+https://open.spotify.com/track/6zdL0aLZs6g61SPGrlMvrM
         public void Adicionar(Usuario usuario)
         {
             _context.Usuario.Add(usuario);
@@ -57,11 +58,6 @@ namespace VHBurguer.Repositories
         public void Remover(int id)
         {
             Usuario? usuario = _context.Usuario.FirstOrDefault(usuarioAux => usuarioAux.UsuarioID == id);
-
-            if (usuario == null)
-            {
-                return;
-            }
 
             _context.Usuario.Remove(usuario);
             _context.SaveChanges();

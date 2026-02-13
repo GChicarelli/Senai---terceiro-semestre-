@@ -1,0 +1,20 @@
+﻿using VHBurguer.Domains;
+namespace VHBurguer.Interfaces
+{
+    public interface IProdutoRepository
+    {
+        List<Produtos> Listar();
+
+        Produto ObterPorId(int id);
+
+        byte[] ObterImgem (int id);
+
+        bool NomeExiste(string nome, int? produtoIdAtual = null);
+
+        void Adicionar(Produto produto, List<int> categoriasIds);
+
+        void Atualizar(Produto produto, List<int> categoriaIds);
+
+        void Remover(int id);
+    }
+}
