@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace VHburguer.Domains;
+﻿namespace VHBurguer.Domains;
 
 public partial class Promocao
 {

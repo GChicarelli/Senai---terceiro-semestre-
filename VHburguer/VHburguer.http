@@ -1,6 +1,6 @@
-@VHburguer_HostAddress = http://localhost:5224
+@VHBurguer_HostAddress = http://localhost:5185
 
-GET {{VHburguer_HostAddress}}/weatherforecast/
+GET {{VHBurguer_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

@@ -1,4 +1,4 @@
-﻿using VHburguer.Domains;
+﻿using VHBurguer.Domains;
 
 namespace VHBurguer.Interfaces
 {
@@ -16,6 +16,6 @@ namespace VHBurguer.Interfaces
 
         void Atualizar(Usuario usuario);
 
-        void Remover (int id);
+        void Remover(int id);
     }
 }

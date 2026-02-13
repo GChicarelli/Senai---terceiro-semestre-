@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace VHburguer.Domains;
+﻿namespace VHBurguer.Domains;
 
 public partial class Usuario
 {
@@ -13,7 +10,7 @@ public partial class Usuario
 
     public byte[] Senha { get; set; } = null!;
 
-    public bool? StatusUsuario { get; set; }
+    public bool StatusUsuario { get; set; }
 
     public virtual ICollection<Produto> Produto { get; set; } = new List<Produto>();
 }

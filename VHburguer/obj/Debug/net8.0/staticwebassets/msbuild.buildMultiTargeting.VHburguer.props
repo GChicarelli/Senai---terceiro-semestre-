@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="..\build\VHburguer.props" />
+  <Import Project="..\build\VHBurguer.props" />
 </Project>

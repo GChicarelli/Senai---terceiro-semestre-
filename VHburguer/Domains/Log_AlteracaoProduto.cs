@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace VHburguer.Domains;
+﻿namespace VHBurguer.Domains;
 
 public partial class Log_AlteracaoProduto
 {
-    public int Log_AltecaoProdutoID { get; set; }
+    public int Log_AlteracaoProdutoID { get; set; }
 
     public DateTime DataAlteracao { get; set; }
 
     public string? NomeAnterior { get; set; }
 
-    public decimal? ValorAnterior { get; set; }
+    public decimal? PrecoAnterior { get; set; }
 
-    public int? ProdutoID { get; set; }
+    public int? FK_ProdutoID { get; set; }
 
-    public virtual Produto? Produto { get; set; }
+    public virtual Produto? FK_Produto { get; set; }
 }

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace VHburguer.Domains;
+﻿namespace VHBurguer.Domains;
 
 public partial class ProdutoPromocao
 {
-    public int PromocaoID { get; set; }
-
     public int ProdutoID { get; set; }
 
-    public decimal PrecoAtual { get; set; }
+    public int PromocaoID { get; set; }
+
+    public decimal? PrecoAtual { get; set; }
 
     public virtual Produto Produto { get; set; } = null!;
 
