@@ -59,9 +59,9 @@ namespace VHBurguer.Repositories
         public byte[] ObterImagem(int id)
         {
             var produto = _context.Produto
-                 .Where(produto => produto.ProdutoID == id)
-                 .Select(produto => produto.Imagem)
-                 .FirstOrDefault();
+                .Where(produto => produto.ProdutoID == id)
+                .Select(produto => produto.Imagem)
+                .FirstOrDefault();
 
             return produto;
         }
@@ -78,16 +78,6 @@ namespace VHBurguer.Repositories
             produto.Categoria = categorias;
 
             _context.Produto.Add(produto);
-            _context.SaveChanges();
-        }
-
-        public void Remover(int id)
-        {
-            var produto = _context.Produto.Find(id);
-            if (produto == null)
-                return;
-
-            _context.Produto.Remove(produto);
             _context.SaveChanges();
         }
 
@@ -130,9 +120,19 @@ namespace VHBurguer.Repositories
             }
 
             _context.SaveChanges();
-        }       
+        }
 
+        public void Remover(int id)
+        {
+            Produto produto = _context.Produto.FirstOrDefault(produto => produto.ProdutoID == id);
+
+            if (produto == null)
+            {
+                return;
+            }
+
+            _context.Produto.Remove(produto);
+            _context.SaveChanges();
+        }
     }
 }
-
-        

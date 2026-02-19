@@ -1,5 +1,3 @@
-﻿using global::VHBurguer.Domains;
-using VHBurguer.Domains;
 namespace VHBurguer.DTOs.ProdutoDto
 {
     public class LerProdutoDto
@@ -12,13 +10,14 @@ namespace VHBurguer.DTOs.ProdutoDto
 
         public string Descricao { get; set; } = null!;
 
-        public bool? StatusUsuario { get; set; }
+        public bool? StatusProduto { get; set; }
 
         // Categorias
         public List<int> CategoriaIds { get; set; } = new();
+        
         public List<string> Categorias { get; set; } = new();
 
-        // Usuário
+        // Usuário que cadastrou
         public int? UsuarioID { get; set; }
 
         public string? UsuarioNome { get; set; }

@@ -1,4 +1,5 @@
 ﻿using VHBurguer.Domains;
+
 namespace VHBurguer.Interfaces
 {
     public interface IProdutoRepository

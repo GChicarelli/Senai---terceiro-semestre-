@@ -34,6 +34,7 @@ namespace VHBurguer.Repositories
             // Any - Retorna true ou false para validar se existe
             return _context.Usuario.Any(usuario => usuario.Email == email);
         }
+
         public void Adicionar(Usuario usuario)
         {
             _context.Usuario.Add(usuario);
@@ -47,6 +48,7 @@ namespace VHBurguer.Repositories
             {
                 return;
             }
+
             usuarioBanco.Nome = usuario.Nome;
             usuarioBanco.Email = usuario.Email;
             usuarioBanco.Senha = usuario.Senha;
@@ -57,11 +59,6 @@ namespace VHBurguer.Repositories
         public void Remover(int id)
         {
             Usuario? usuario = _context.Usuario.FirstOrDefault(usuarioAux => usuarioAux.UsuarioID == id);
-
-            if (usuario == null)
-            {
-                return;
-            }
 
             _context.Usuario.Remove(usuario);
             _context.SaveChanges();
