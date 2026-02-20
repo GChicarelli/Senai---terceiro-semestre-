@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using VHBurguer.Applications.Services;
 using VHBurguer.DTOs.ProdutoDto;
+using VHBurguer.Exceptions;
 
 namespace VHBurguer.Controllers
 {
@@ -24,7 +26,7 @@ namespace VHBurguer.Controllers
 
             if (string.IsNullOrWhiteSpace(idtexto))
             {
-                throw  new DomainException("Usuario não autenticado")
+                throw new DomainException("Usuario não autenticado");
             }
 
             return int.Parse (idtexto);
@@ -64,9 +66,63 @@ namespace VHBurguer.Controllers
 
                 return File(imagem, "image/jpeg");
             }
+            catch (VHBurguer.Exceptions.DomainException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        //indica que recebe dados no formato multipart/form-data
+        // necessário quando enviamos arquivos (ex. imagem do produto)
+        [Consumes ("multipart/form-data")]
+        [Authorize] // exige login para adicionar produtos 
+
+        public ActionResult Adicionar([FromForm]CriarProdutoDto produtoDto)
+        {
+            try
+            {
+                int usuarioId = obterUsuarioIdLogado();
+                // o cadastro fica  associado ao usuário logado
+                _service.Adicionar(produtoDto, usuarioId);
+                return StatusCode(201); // Created 
+            }
             catch (DomainException ex)
             {
-                return NotFound(ex.Mesage);
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost("{id}")]
+        [Consumes("multpart/form-data")]
+        [Authorize]
+        public ActionResult Atualizar(int id, [FromForm] AtualizarProdutoDto produtoDto)
+        {
+            try
+            {
+                _service.Atualizar(id, produtoDto);
+                return NoContent();
+
+            }
+            catch(DomainException ex)
+            {
+                return BadRequest(ex.Message); 
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+
+        public ActionResult Remover(int id)
+        {
+            try
+            {
+                _service.Remover(id);
+                return NoContent();
+
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

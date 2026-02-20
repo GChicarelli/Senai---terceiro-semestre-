@@ -22,7 +22,7 @@ namespace VHBurguer.Repositories
                 .Include(produto => produto.Categoria)
 
                 // Busca produtos, para cada produto traz as seus usuários
-                .Include(produto => produto.FK_UsuarioID)
+                .Include(produto => produto.Usuario)
                 .ToList();
 
             return produtos;
@@ -32,7 +32,7 @@ namespace VHBurguer.Repositories
         {
             Produto? produto = _context.Produto
                 .Include(produtoDb => produtoDb.Categoria)
-                .Include(produtoDb => produtoDb.FK_UsuarioID)
+                .Include(produtoDb => produtoDb.UsuarioID)
 
             // Procura no banco (aux produtoDb) e verifica se o ID do produto no
             // banco é igual ao ID passado como parâmentro no méetodo ObterPorID

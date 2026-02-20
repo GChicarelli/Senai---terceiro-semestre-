@@ -98,7 +98,7 @@ namespace VHBurguer.Applications.Services
                 Descricao = produtoDto.Descricao,
                 Imagem = ImagemParaBytes.ConverterImagem(produtoDto.Imagem),
                 StatusProduto = true,
-                FK_UsuarioID = usuarioID
+                UsuarioID = usuarioID
             };
 
             _repository.Adicionar(produto, produtoDto.CategoriaIds);

@@ -25,8 +25,8 @@ namespace VHBurguer.Repositories
 
         public Usuario? ObterPorEmail(string email)
         {
-            // FirstOrDefault - Retorna nosso usuário do banco
-            return _context.Usuario.First(usuario => usuario.Email == email);
+            // Retorna o usuário ou null se não existir
+            return _context.Usuario.FirstOrDefault(usuario => usuario.Email == email);
         }
 
         public bool EmailExiste(string email)

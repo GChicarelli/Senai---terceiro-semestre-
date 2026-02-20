@@ -14,9 +14,9 @@ public partial class Produto
 
     public bool? StatusProduto { get; set; }
 
-    public int? FK_UsuarioID { get; set; }
+    public int? UsuarioID { get; set; }
 
-    public virtual Usuario? FK_Usuario { get; set; }
+    public virtual Usuario? Usuario { get; set; }
 
     public virtual ICollection<Log_AlteracaoProduto> Log_AlteracaoProduto { get; set; } = new List<Log_AlteracaoProduto>();
 

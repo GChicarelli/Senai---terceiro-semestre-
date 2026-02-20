@@ -10,7 +10,7 @@ namespace VHBurguer.Applications.Autenticacao
     public class GeradorTokenJwt
     {
         private readonly IConfiguration _config;
-        private IEnumerable<Claim> claims;
+        
 
         public GeradorTokenJwt (IConfiguration config)
         {
@@ -30,7 +30,7 @@ namespace VHBurguer.Applications.Autenticacao
             var audience = _config["Jwt:Audience"]!;
 
             //Depois disso, o usuário precisa Logar novamente
-            var expiraEmMinutos = int.Parse(_config["Jwt:expiraEmMinutos"]!);
+            var expiraEmMinutos = int.Parse(_config["Jwt:ExpiraEmMinutos"]!);
 
             //converte a chave para bytes (necessario para criar a assinatura)
             var KeyBytes = Encoding.UTF8.GetBytes(chave);
@@ -45,7 +45,7 @@ namespace VHBurguer.Applications.Autenticacao
             //Define o algoritimo de assinatura do token 
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var clain = new List<Claim>
+            var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, usuario.UsuarioID.ToString()),
 
@@ -60,7 +60,7 @@ namespace VHBurguer.Applications.Autenticacao
                 audience: audience,
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(expiraEmMinutos),
-                signingCredentials: credentials,
+                signingCredentials: credentials
                 );
 
             return new JwtSecurityTokenHandler().WriteToken(token);

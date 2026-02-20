@@ -70,8 +70,8 @@ public partial class VH_BurguerContext : DbContext
             entity.Property(e => e.Preco).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.StatusProduto).HasDefaultValue(true);
 
-            entity.HasOne(d => d.FK_Usuario).WithMany(p => p.Produto)
-                .HasForeignKey(d => d.FK_UsuarioID)
+            entity.HasOne(d => d.Usuario).WithMany(p => p.Produto)
+                .HasForeignKey(d => d.UsuarioID)
                 .HasConstraintName("FK__Produto__FK_Usua__628FA481");
 
             entity.HasMany(d => d.Categoria).WithMany(p => p.Produto)
