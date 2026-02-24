@@ -1,0 +1,67 @@
+﻿using VHBurguer.Domains;
+using VHBurguer.DTOs.PromocaoDto;
+using VHBurguer.Exceptions;
+using VHBurguer.Interfaces;
+
+namespace VHBurguer.Applications.Services
+{
+    public class PromocaoService
+    {
+        private readonly IPromocaoRepository _repository;
+
+        public PromocaoService(IPromocaoRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public List<LerPromocaoDto> Listar()
+        {
+            List<Promocao> promocoes = _repository.Listar();
+
+            List<LerPromocaoDto> promocoesDto = promocoes.Select(promocao => new LerPromocaoDto
+            {
+                PromocaoID = promocao.PromocaoID,
+                Nome = promocao.Nome,
+                DataExpiracao = promocao.DataExpiracao,
+                StatusPromocao = promocao.StatusPromocao
+            }).ToList();
+
+            return promocoesDto;
+        }
+
+        public LerPromocaoDto ObterPorId(int id)
+        {
+            Promocao promocao = _repository.ObterPorId(id);
+
+            if (promocao == null)
+            {
+                throw new DomainException("Promoção não encontrada.");
+            }
+
+            LerPromocaoDto promocaoDto = new LerPromocaoDto
+            {
+                PromocaoID = promocao.PromocaoID,
+                Nome = promocao.Nome,
+                DataExpiracao = promocao.DataExpiracao,
+                StatusPromocao = promocao.StatusPromocao
+            };
+
+            return promocaoDto;
+        }
+
+        private static void ValidarNome(string nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+            {
+                throw new DomainException("Nome é obrigatório");
+            }
+        }
+
+
+
+        public void Adicionar()
+        {
+
+        }
+    }
+}
