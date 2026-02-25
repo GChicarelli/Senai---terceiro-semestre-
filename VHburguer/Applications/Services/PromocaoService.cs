@@ -1,4 +1,5 @@
-﻿using VHBurguer.Domains;
+﻿using VHBurguer.Applications.Regras;
+using VHBurguer.Domains;
 using VHBurguer.DTOs.PromocaoDto;
 using VHBurguer.Exceptions;
 using VHBurguer.Interfaces;
@@ -49,19 +50,59 @@ namespace VHBurguer.Applications.Services
             return promocaoDto;
         }
 
-        private static void ValidarNome(string nome)
+        public void Adicionar(CriarPromocaoDto promoDto)
         {
-            if (string.IsNullOrWhiteSpace(nome))
+            ValidacaoNome.ValidarNome(promoDto.Nome);
+            ValidarDataExpiracaoPromocao.ValidarDataExpericao(promoDto.DataExpiracao);
+
+            if (_repository.NomeExiste(promoDto.Nome))
             {
-                throw new DomainException("Nome é obrigatório");
+                throw new DomainException("Promoção já existente.");
             }
+
+            Promocao promocao = new Promocao
+            {
+                Nome = promoDto.Nome,
+                DataExpiracao = promoDto.DataExpiracao,
+                StatusPromocao = promoDto.StatusPromocao
+            };
+
+            _repository.Adicionar(promocao);
+        }
+        
+        public void Atualizar (int id, CriarPromocaoDto promoDto)
+        {
+            ValidarNome(promoDto.Nome);
+
+            Promocao promocaoBanco = _repository.ObterPorId(id);
+
+            if (promocaoBanco == null)
+            {
+                throw new DomainException("Promõção não encontrada.");
+            }
+
+            if (_repository.NomeExiste (promoDto.Nome,promocaoIdAtual:id))
+            {
+                throw new DomainException("Já existe outra promoção com esse nome");
+            }
+
+            promocaoBanco.Nome = promoDto.Nome;
+            promocaoBanco.DataExpiracao = promoDto.DataExpiracao;
+            promocaoBanco.StatusPromocao = promoDto.StatusPromocao;
+
+            _repository.Atualizar(promocaoBanco);
         }
 
-
-
-        public void Adicionar()
+        public void Remover (int id)
         {
+            Promocao promocaoBanco = _repository.ObterPorId(id);
 
+            if (promocaoBanco == null)
+            {
+                throw new DomainException("Promoção não encontrada");
+            }
+
+            _repository.Remover(id);
         }
     }
 }

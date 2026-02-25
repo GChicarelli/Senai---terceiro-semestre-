@@ -112,8 +112,7 @@
               "RelativeToolTip": "DTOs\\PromocaoDto\\LerPromocaoDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T13:45:17.19Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T13:45:17.19Z"
             },
             {
               "$type": "Document",
@@ -125,8 +124,7 @@
               "RelativeToolTip": "Applications\\Regras\\ValidarDataExpiracaoPromocao.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T13:35:11.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T13:35:11.138Z"
             },
             {
               "$type": "Document",
@@ -151,8 +149,7 @@
               "RelativeToolTip": "Repositories\\PromocaoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T13:02:30.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T13:02:30.31Z"
             },
             {
               "$type": "Document",
@@ -164,8 +161,7 @@
               "RelativeToolTip": "Interfaces\\IPromocaoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T12:57:53.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T12:57:53.058Z"
             },
             {
               "$type": "Document",
@@ -177,8 +173,7 @@
               "RelativeToolTip": "DTOs\\PromocaoDto\\CriarPromocaoDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T12:54:26.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T12:54:26.083Z"
             },
             {
               "$type": "Document",
@@ -190,8 +185,7 @@
               "RelativeToolTip": "Controllers\\CategoriaController.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAA0wFcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T12:14:04.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T12:14:04.937Z"
             },
             {
               "$type": "Document",
@@ -215,8 +209,7 @@
               "RelativeToolTip": "Controllers\\ProdutoController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T11:04:02.8Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T11:04:02.8Z"
             },
             {
               "$type": "Document",
@@ -228,8 +221,7 @@
               "RelativeToolTip": "Applications\\Services\\UsuarioService.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-24T12:13:59.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-24T12:13:59.804Z"
             },
             {
               "$type": "Document",
@@ -313,8 +305,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T11:57:02.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T11:57:02.769Z"
             },
             {
               "$type": "Document",
@@ -326,8 +317,7 @@
               "RelativeToolTip": "Repositories\\ProdutoRepository.cs",
               "ViewState": "AgIAAGsAAAAAAAAAAAAuwH4AAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T13:56:22.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T13:56:22.651Z"
             },
             {
               "$type": "Document",
