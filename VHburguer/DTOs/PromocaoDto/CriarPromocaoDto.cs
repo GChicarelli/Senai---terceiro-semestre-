@@ -2,7 +2,7 @@
 {
     public class CriarPromocaoDto
     {
-        public string Nome { get; set; } = null;
+        public string Nome { get; set; } = null!;
 
         public DateTime DataExpiracao { get; set; }
 

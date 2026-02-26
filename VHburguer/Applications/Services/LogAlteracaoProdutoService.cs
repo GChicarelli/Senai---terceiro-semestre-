@@ -1,8 +1,5 @@
 ﻿using VHBurguer.Domains;
-using VHBurguer.DTOs.AutenticacaoDto;
-using VHBurguer.DTOs.CategoriaDto;
 using VHBurguer.DTOs.LogProdutoDto;
-using VHBurguer.DTOs.ProdutoDto;
 using VHBurguer.Interfaces;
 
 namespace VHBurguer.Applications.Services
@@ -16,7 +13,7 @@ namespace VHBurguer.Applications.Services
             _repository = repostory;
         }
 
-        public List<LerCategoriaDto> Listar()
+        public List<LerLogProdutoDto> Listar()
         {
             List<Log_AlteracaoProduto> logs = _repository.Listar();
 
@@ -39,8 +36,8 @@ namespace VHBurguer.Applications.Services
             List<LerLogProdutoDto> listaLogProduto = logs.Select(log => new LerLogProdutoDto
             {
                 LogID = log.Log_AlteracaoProdutoID,
-                ProdutoID = log.ProdutoID,
-                NomeANterior = log.NomeAnterior,
+                ProdutoID = log.FK_ProdutoID,
+                NomeAnterior = log.NomeAnterior,
                 PrecoAnterior = log.PrecoAnterior,
                 DataAlteracao = log.DataAlteracao
             }).ToList();

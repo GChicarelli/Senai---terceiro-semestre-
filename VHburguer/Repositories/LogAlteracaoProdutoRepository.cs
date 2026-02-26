@@ -1,9 +1,10 @@
 ﻿using VHBurguer.Contexts;
 using VHBurguer.Domains;
+using VHBurguer.Interfaces;
 
 namespace VHBurguer.Repositories
 {
-    public class LogAlteracaoProdutoRepository : ILogAlteracaoProdutoRespository
+    public class LogAlteracaoProdutoRepository : ILogAlteracaoProdutoRepository
     {
         private readonly VH_BurguerContext _context;
 
@@ -21,7 +22,7 @@ namespace VHBurguer.Repositories
         public List<Log_AlteracaoProduto> ListarPorProduto(int produtoId)
         {
             List<Log_AlteracaoProduto>AlteracaoProduto = _context.Log_AlteracaoProduto
-                .Where(log => log.ProdutoID  == produtoId)
+                .Where(log => log.FK_ProdutoID  == produtoId)
                 .OrderByDescending(l => l.DataAlteracao)
                 .ToList();
             return AlteracaoProduto;

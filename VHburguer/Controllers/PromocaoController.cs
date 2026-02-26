@@ -41,30 +41,45 @@ namespace VHBurguer.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-
         public ActionResult Adicionar(CriarPromocaoDto promoDto)
         {
             try
             {
                 _service.Adicionar(promoDto);
+
                 return StatusCode(201);
             }
-
             catch (DomainException ex)
             {
-                return BadRequest(ex.Message); 
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpPut("{id}")]
         [Authorize]
-
-        public AcceptedResult Atualizar(int id, CriarPromocaoDto promoDto)
+        public ActionResult Atualizar(int id, CriarPromocaoDto promoDto)
         {
             try
             {
                 _service.Atualizar(id, promoDto);
+
+                return NoContent();
+            }
+            catch (DomainException ex)
+            {
+                // return StatusCode(400, ex.Message);
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public ActionResult Remover(int id)
+        {
+            try
+            {
+                _service.Remover(id);
+
                 return NoContent();
             }
             catch (DomainException ex)

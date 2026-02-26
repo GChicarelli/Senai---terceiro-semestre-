@@ -92,7 +92,7 @@ namespace VHBurguer.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("{id}")]
+        [HttpPut("{id}")]
         [Consumes("multpart/form-data")]
         [Authorize]
         public ActionResult Atualizar(int id, [FromForm] AtualizarProdutoDto produtoDto)

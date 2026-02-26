@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHburguer\\VHBurguer.csproj": {}
+    "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHBurguer\\VHBurguer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHburguer\\VHBurguer.csproj": {
+    "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHBurguer\\VHBurguer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHburguer\\VHBurguer.csproj",
+        "projectUniqueName": "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHBurguer\\VHBurguer.csproj",
         "projectName": "VHBurguer",
-        "projectPath": "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHburguer\\VHBurguer.csproj",
+        "projectPath": "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHBurguer\\VHBurguer.csproj",
         "packagesPath": "C:\\Users\\53695322810\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\53695322810\\Desktop\\Senai---terceiro-semestre-\\VHBurguer\\obj\\",
         "projectStyle": "PackageReference",

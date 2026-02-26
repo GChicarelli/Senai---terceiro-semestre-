@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using VHBurguer.Applications.Autenticacao;
-using VHBurguer.Domains;
+﻿using VHBurguer.Domains;
 using VHBurguer.DTOs.AutenticacaoDto;
 using VHBurguer.Exceptions;
 using VHBurguer.Interfaces;
@@ -12,6 +8,7 @@ namespace VHBurguer.Applications.Services
     public class AutenticacaoService
     {
         private readonly IUsuarioRepository _repository;
+
         private readonly GeradorTokenJwt _tokenJwt;
 
         public AutenticacaoService(IUsuarioRepository repository, GeradorTokenJwt tokenJwt)
@@ -19,32 +16,14 @@ namespace VHBurguer.Applications.Services
             _repository = repository;
             _tokenJwt = tokenJwt;
         }
+
+        // Compara a hash SHA256
         private static bool VerificarSenha(string senhaDigitada, byte[] senhaHashBanco)
         {
-            using var sha = SHA256.Create();
-            var hashDigitado = sha.ComputeHash(Encoding.UTF8.GetBytes(senhaDigitada));
+            using var sha = System.Security.Cryptography.SHA256.Create();
+            var hashDigitado = sha.ComputeHash(System.Text.Encoding.UTF8.GetBytes(senhaDigitada));
+
             return hashDigitado.SequenceEqual(senhaHashBanco);
-        }
-
-        public TokenDto Autenticar(LoginDto loginDto)
-        {
-            Usuario usuario = _repository.ObterPorEmail(loginDto.Email);
-
-            if (usuario == null)
-            {
-                throw new DomainException("Email ou senha inválidos");
-            }
-
-            // Comparar a senha digitada com a senha armazenada
-            if (!VerificarSenha(loginDto.Senha, usuario.Senha))
-            {
-                throw new DomainException("Email ou senha inválidos");
-            }
-
-            // Gerando o token
-            var token = _tokenJwt.GerarToken(usuario);
-
-            return new TokenDto { Token = token };
         }
 
         public TokenDto Login(LoginDto loginDto)
